@@ -1,4 +1,4 @@
-package com.nisum.rest.model;
+package com.nisum.registry.model;
 
 import java.io.Serializable;
 

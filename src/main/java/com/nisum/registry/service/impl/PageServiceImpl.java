@@ -1,4 +1,4 @@
-package com.nisum.rest.service.impl;
+package com.nisum.registry.service.impl;
 
 import java.util.Iterator;
 import java.util.List;
@@ -7,9 +7,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.nisum.rest.dao.PageDao;
-import com.nisum.rest.model.Page;
-import com.nisum.rest.service.PageService;
+import com.nisum.registry.dao.PageDao;
+import com.nisum.registry.model.Page;
+import com.nisum.registry.service.PageService;
 
 @SuppressWarnings("unchecked")
 public class PageServiceImpl implements PageService {

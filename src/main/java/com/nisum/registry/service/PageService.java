@@ -1,4 +1,4 @@
-package com.nisum.rest.service;
+package com.nisum.registry.service;
 
 public interface PageService {
 

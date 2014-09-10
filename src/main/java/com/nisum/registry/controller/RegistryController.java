@@ -1,4 +1,4 @@
-package com.nisum.rest.controller;
+package com.nisum.registry.controller;
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.nisum.rest.service.PageService;
+import com.nisum.registry.service.PageService;
 
 @Component
 @Path("/registry")

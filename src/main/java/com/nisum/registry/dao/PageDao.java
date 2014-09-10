@@ -1,8 +1,8 @@
-package com.nisum.rest.dao;
+package com.nisum.registry.dao;
 
 import java.util.List;
 
-import com.nisum.rest.model.Page;
+import com.nisum.registry.model.Page;
 
 public interface PageDao {
 

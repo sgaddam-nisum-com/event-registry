@@ -1,12 +1,12 @@
-package com.nisum.rest.dao.impl;
+package com.nisum.registry.dao.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.nisum.rest.dao.PageDao;
-import com.nisum.rest.model.Page;
+import com.nisum.registry.dao.PageDao;
+import com.nisum.registry.model.Page;
 
 public class PageDaoImpl implements PageDao {
 
