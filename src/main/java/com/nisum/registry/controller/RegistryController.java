@@ -2,6 +2,7 @@ package com.nisum.registry.controller;
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -11,8 +12,6 @@ import javax.ws.rs.core.Response;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.nisum.registry.service.PageService;
 
@@ -25,7 +24,7 @@ public class RegistryController {
 	private static final Logger logger = Logger
 			.getLogger(RegistryController.class);
 
-	@RequestMapping(method = RequestMethod.POST)
+	@POST
 	@Path("/savePage")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response savePayment(@FormParam("username") String username,
@@ -33,8 +32,10 @@ public class RegistryController {
 
 		logger.info("Inputs : username - " + username + " - name - " + name
 				+ " source - " + source);
+		
+		String res = pageService.save(username, name, source);
 		return Response.status(200)
-				.entity(pageService.save(username, name, source)).build();
+				.entity(res).build();
 	}
 
 	@GET

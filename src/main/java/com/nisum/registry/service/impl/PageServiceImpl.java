@@ -31,10 +31,14 @@ public class PageServiceImpl implements PageService {
 			.getLogger(PageServiceImpl.class);
 
 	@Override
-	public boolean save(String username, String name, String source) {
+	public String save(String username, String name, String source) {
 		logger.info("save source to file");
 		String path = saveSourceToFile(username, name, source);
-		return pageDao.save(name, path);
+		boolean b = pageDao.save(name, path);
+		JSONObject json = new JSONObject();
+		json.put("result", b);
+		
+		return json.toJSONString();
 	}
 
 	private String saveSourceToFile(String username, String name, String source) {
