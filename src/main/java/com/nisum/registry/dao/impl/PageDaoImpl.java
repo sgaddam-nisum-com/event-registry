@@ -2,6 +2,7 @@ package com.nisum.registry.dao.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -13,17 +14,22 @@ public class PageDaoImpl implements PageDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
+	private static final Logger logger = Logger.getLogger(PageDaoImpl.class);
+
 	@Override
-	public String save(String name, String path) {
+	public boolean save(String name, String path) {
+		boolean status = false;
 		String sql = "INSERT INTO page (name, path) VALUES (?, ?) on duplicate key update path = values(path)";
 		int r = 0;
 		try {
 			r = jdbcTemplate.update(sql, new Object[] { name, path });
+			status = true;
 		} catch (Exception e) {
-			System.err.println(e.getMessage());
+			logger.error(e.getMessage());
+			return status;
 		}
 
-		return String.valueOf(r);
+		return status;
 	}
 
 	@Override

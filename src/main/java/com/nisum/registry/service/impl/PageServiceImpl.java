@@ -31,16 +31,15 @@ public class PageServiceImpl implements PageService {
 			.getLogger(PageServiceImpl.class);
 
 	@Override
-	public String save(String username, String name, String source) {
-		System.out.println("PageServiceImpl.save()");
-		System.out.println(outputFolder);
+	public boolean save(String username, String name, String source) {
+		logger.info("save source to file");
 		String path = saveSourceToFile(username, name, source);
 		return pageDao.save(name, path);
 	}
 
 	private String saveSourceToFile(String username, String name, String source) {
 
-		String filePath = outputFolder + username + "/ " + name + ".html";
+		String filePath = outputFolder + username + "/" + name + ".html";
 		try {
 			FileUtils.writeStringToFile(new File(filePath), source);
 		} catch (IOException e) {
@@ -58,7 +57,7 @@ public class PageServiceImpl implements PageService {
 			Page page = (Page) iterator.next();
 			JSONObject json = new JSONObject();
 			json.put("name", page.getName());
-			json.put("source", page.getSource());
+			json.put("path", page.getPath());
 			json.put("id", page.getId());
 			jsonArray.add(json);
 		}
@@ -76,7 +75,7 @@ public class PageServiceImpl implements PageService {
 			Page page = (Page) iterator.next();
 			JSONObject json = new JSONObject();
 			json.put("name", page.getName());
-			json.put("source", page.getSource());
+			json.put("path", page.getPath());
 			json.put("id", page.getId());
 			jsonArray.add(json);
 		}
