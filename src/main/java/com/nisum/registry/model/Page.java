@@ -8,10 +8,10 @@ public class Page implements Serializable {
 	private int id;
 
 	private String name;
-	
+
 	private String path;
-	
-	private String code;
+
+	private String source;
 
 	/**
 	 * @return the id
@@ -21,7 +21,8 @@ public class Page implements Serializable {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -35,7 +36,8 @@ public class Page implements Serializable {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -49,24 +51,26 @@ public class Page implements Serializable {
 	}
 
 	/**
-	 * @param path the path to set
+	 * @param path
+	 *            the path to set
 	 */
 	public void setPath(String path) {
 		this.path = path;
 	}
 
 	/**
-	 * @return the code
+	 * @return the source
 	 */
-	public String getCode() {
-		return code;
+	public String getSource() {
+		return source;
 	}
 
 	/**
-	 * @param code the code to set
+	 * @param source
+	 *            the source to set
 	 */
-	public void setCode(String code) {
-		this.code = code;
+	public void setSource(String source) {
+		this.source = source;
 	}
 
 }

@@ -14,11 +14,11 @@ public class PageDaoImpl implements PageDao {
 	private JdbcTemplate jdbcTemplate;
 
 	@Override
-	public String save(String name, String code) {
-		String sql = "INSERT INTO page (name, path) VALUES (?, ?)";
+	public String save(String name, String path) {
+		String sql = "INSERT INTO page (name, path) VALUES (?, ?) on duplicate key update path = values(path)";
 		int r = 0;
 		try {
-			r = jdbcTemplate.update(sql, new Object[] { name, code });
+			r = jdbcTemplate.update(sql, new Object[] { name, path });
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}

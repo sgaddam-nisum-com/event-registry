@@ -29,12 +29,12 @@ public class RegistryController {
 	@Path("/savePage")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response savePayment(@FormParam("username") String username,
-			@FormParam("name") String name, @FormParam("code") String code) {
+			@FormParam("name") String name, @FormParam("source") String source) {
 
 		logger.info("Inputs : username - " + username + " - name - " + name
-				+ " code - " + code);
+				+ " source - " + source);
 		return Response.status(200)
-				.entity(pageService.save(username, name, code)).build();
+				.entity(pageService.save(username, name, source)).build();
 	}
 
 	@GET
