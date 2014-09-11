@@ -10,6 +10,7 @@ $(document).ready(function() {
 		// get the form data
 		// there are many ways to get this data using jQuery (you can use the class or id also)
 		var formData = {
+			'username' 				: $('input[name=username]').val(),
 			'name' 				: $('input[name=name]').val(),
 			'code' 			: $('input[name=code]').val()
 		};
@@ -46,6 +47,11 @@ $(document).ready(function() {
 		<table>
 			<tr>
 				<th colspan="2">Save Data</th>
+			</tr>
+			<tr>
+				<td>UserName</td>
+				<td><input type="text" name="username" id="username" value="sgaddam" disabled="disabled">
+				</td>
 			</tr>
 			<tr>
 				<td>Name</td>

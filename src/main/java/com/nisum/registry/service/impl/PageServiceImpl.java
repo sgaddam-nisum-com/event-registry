@@ -18,7 +18,7 @@ public class PageServiceImpl implements PageService {
 	PageDao pageDao;
 
 	@Override
-	public String save(String name, String code) {
+	public String save(String username, String name, String code) {
 		return pageDao.save(name, code);
 	}
 

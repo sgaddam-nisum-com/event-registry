@@ -8,6 +8,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,21 +22,26 @@ public class RegistryController {
 
 	@Autowired
 	PageService pageService;
+	private static final Logger logger = Logger
+			.getLogger(RegistryController.class);
 
 	@RequestMapping(method = RequestMethod.POST)
 	@Path("/savePage")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response savePayment(@FormParam("name") String name,
-			@FormParam("code") String code) {
-		System.out.println("Inputs : name - " + name + " code - " + code);
-		return Response.status(200).entity(pageService.save(name, code))
-				.build();
+	public Response savePayment(@FormParam("username") String username,
+			@FormParam("name") String name, @FormParam("code") String code) {
+
+		logger.info("Inputs : username - " + username + " - name - " + name
+				+ " code - " + code);
+		return Response.status(200)
+				.entity(pageService.save(username, name, code)).build();
 	}
 
 	@GET
 	@Path("/getPages")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getPages() {
+		logger.info("RegistryController.getPages()");
 		return pageService.getPages();
 
 	}
@@ -44,6 +50,7 @@ public class RegistryController {
 	@Path("/getPageByName")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getPageByName(@QueryParam(value = "name") String name) {
+		logger.info("RegistryController.getPageByName()");
 		return pageService.getPageByName(name);
 
 	}
