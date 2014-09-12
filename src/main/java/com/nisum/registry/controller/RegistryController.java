@@ -32,27 +32,27 @@ public class RegistryController {
 
 		logger.info("Inputs : username - " + username + " - name - " + name
 				+ " source - " + source);
-		
+
 		String res = pageService.save(username, name, source);
-		return Response.status(200)
-				.entity(res).build();
+		return Response.status(200).entity(res).build();
 	}
 
 	@GET
 	@Path("/getPages")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getPages() {
+	public String getPages(@QueryParam(value = "username") String username) {
 		logger.info("RegistryController.getPages()");
-		return pageService.getPages();
+		return pageService.getPages(username);
 
 	}
 
 	@GET
 	@Path("/getPageByName")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getPageByName(@QueryParam(value = "name") String name) {
+	public String getPageByName(@QueryParam(value = "username") String username,
+			@QueryParam(value = "name") String name) {
 		logger.info("RegistryController.getPageByName()");
-		return pageService.getPageByName(name);
+		return pageService.getPageByName(username, name);
 
 	}
 

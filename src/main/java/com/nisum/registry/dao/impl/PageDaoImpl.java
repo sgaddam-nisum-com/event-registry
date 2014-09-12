@@ -17,12 +17,12 @@ public class PageDaoImpl implements PageDao {
 	private static final Logger logger = Logger.getLogger(PageDaoImpl.class);
 
 	@Override
-	public boolean save(String name, String path) {
+	public boolean save(String username, String name, String path) {
 		boolean status = false;
-		String sql = "INSERT INTO page (name, path) VALUES (?, ?) on duplicate key update path = values(path)";
+		String sql = "INSERT INTO page (username, name, path) VALUES (?, ?, ?) on duplicate key update path = values(path)";
 		int r = 0;
 		try {
-			r = jdbcTemplate.update(sql, new Object[] { name, path });
+			r = jdbcTemplate.update(sql, new Object[] { username, name, path });
 			status = true;
 		} catch (Exception e) {
 			logger.error(e.getMessage());
@@ -33,17 +33,18 @@ public class PageDaoImpl implements PageDao {
 	}
 
 	@Override
-	public List<Page> getPageByName(String name) {
-		String sql = "SELECT * FROM page WHERE name = ?";
-		List<Page> pages = jdbcTemplate.query(sql, new Object[] { name },
-				new PageRowMapper());
+	public List<Page> getPageByName(String username, String name) {
+		String sql = "SELECT * FROM page WHERE username = ? and name = ?";
+		List<Page> pages = jdbcTemplate.query(sql, new Object[] { username,
+				name }, new PageRowMapper());
 		return pages;
 	}
 
 	@Override
-	public List<Page> getPages() {
-		String sql = "SELECT * FROM page";
-		List<Page> pages = jdbcTemplate.query(sql, new PageRowMapper());
+	public List<Page> getPages(String username) {
+		String sql = "SELECT * FROM page where username = ?";
+		List<Page> pages = jdbcTemplate.query(sql, new Object[] { username },
+				new PageRowMapper());
 		return pages;
 	}
 

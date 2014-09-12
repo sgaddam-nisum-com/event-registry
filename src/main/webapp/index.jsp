@@ -43,9 +43,9 @@
 	</script>
 	<h2>Event Registry Start Up!</h2>
 	<p>
-		<a href="event/registry/getPages">read</a>
+		<a href="event/registry/getPages?username=sgaddam">read</a>
 	<p>
-		<a href="event/registry/getPageByName?name=header">read by name header</a>
+		<a href="event/registry/getPageByName?username=sgaddam&name=header">read by name header</a>
 	<form name="pages" method="get">
 		<div id="results"></div>
 		<table>
@@ -70,20 +70,18 @@
 		</table>
 	</form>
 
-	<div id="sample">
-		<table style="min-width: 100px;display: none;">
-			<tr>
-				<th>name</th>
-				<th>rank</th>
-			</tr>
-			<tr>
-				<td>sandy</td>
-				<td>1</td>
-			</tr>
-		</table>
-
-
+	<div id="sample" style="display: none;">
+		<!DOCTYPE html>
+		<html>
+			<body>
+				<h1>This is heading 1</h1>
+				<h2>This is heading 2</h2>
+				<h3>This is heading 3</h3>
+				<h4>This is heading 4</h4>
+				<h5>This is heading 5</h5>
+				<h6>This is heading 6</h6>
+			</body>
+		</html>
 	</div>
-
 </body>
 </html>

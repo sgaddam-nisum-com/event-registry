@@ -34,7 +34,7 @@ public class PageServiceImpl implements PageService {
 	public String save(String username, String name, String source) {
 		logger.info("save source to file");
 		String path = saveSourceToFile(username, name, source);
-		boolean b = pageDao.save(name, path);
+		boolean b = pageDao.save(username, name, path);
 		JSONObject json = new JSONObject();
 		json.put("result", b);
 		
@@ -53,8 +53,8 @@ public class PageServiceImpl implements PageService {
 	}
 
 	@Override
-	public String getPages() {
-		List<Page> pages = pageDao.getPages();
+	public String getPages(String username) {
+		List<Page> pages = pageDao.getPages(username);
 
 		JSONArray jsonArray = new JSONArray();
 		for (Iterator<Page> iterator = pages.iterator(); iterator.hasNext();) {
@@ -71,8 +71,8 @@ public class PageServiceImpl implements PageService {
 	}
 
 	@Override
-	public String getPageByName(String name) {
-		List<Page> pages = pageDao.getPageByName(name);
+	public String getPageByName(String username, String name) {
+		List<Page> pages = pageDao.getPageByName(username, name);
 
 		JSONArray jsonArray = new JSONArray();
 		for (Iterator<Page> iterator = pages.iterator(); iterator.hasNext();) {

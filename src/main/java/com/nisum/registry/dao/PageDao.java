@@ -6,10 +6,10 @@ import com.nisum.registry.model.Page;
 
 public interface PageDao {
 
-	boolean save(String name, String path);
+	boolean save(String username, String name, String path);
 
-	List<Page> getPageByName(String name);
+	List<Page> getPageByName(String username, String name);
 
-	List<Page> getPages();
+	List<Page> getPages(String username);
 
 }
