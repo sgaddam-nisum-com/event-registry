@@ -11,9 +11,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
 
-import com.nisum.registry.controller.RegistryController;
 import com.nisum.registry.dao.PageDao;
 import com.nisum.registry.model.Page;
 import com.nisum.registry.service.PageService;

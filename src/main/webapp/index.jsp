@@ -3,7 +3,7 @@
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var url = 'http://localhost:8080/event-registry/event/registry/savePage';
+			var url = 'event/registry/savePage';
 			// process the form
 			$('form').submit(function(event) {
 				// get the form data
